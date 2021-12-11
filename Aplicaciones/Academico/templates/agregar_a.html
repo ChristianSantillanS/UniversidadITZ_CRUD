@@ -1,0 +1,64 @@
+{% extends "./base.html" %}
+{% block title %}Añadir alumno{% endblock %}
+{% block body%}
+    <div class= "row">
+      {% if messages %}
+      {% for message in messages %}
+      <div class = "alert alert-dismissible alert-success">
+        <button type = "button" class = "close" data-dismiss= "alert">&times;</button>
+        <strong class = "text-light">{{ message }}</strong>
+      </div>
+      {% endfor %}
+      {% endif %}
+
+    
+        
+<h2 class = "text-dark">Gestión de alumnos</h2> 
+</div class = "col-md-8 offset-md-8">
+<form class="needs-validation" novalidate></form>
+    <form action="/registraralumnos/ " method="post">{% csrf_token %}
+        <div class="form rowcol-md-4 mb-4">
+            <label for="validationTooltipUsername">Numero de control</label>
+            <div class="input-group">
+             <div class="input-group-prepend">
+             <input type="number" class="form-control" id="txtNo_control" name = "txtNo_control" class ="form-control" placeholder="No de control" minlength="6" maxlength="8" required>
+                <div class="invalid-tooltip">
+                Escribe un numero valido
+                </div>
+            </div>
+            </div>
+        
+        <div class="col-md-4 mb-3">
+            <label for="validationTooltip02">Apellido Paterno</label>
+            <input type="text" class="form-control" id="txtApellido_p" name = "txtApellido_p" class ="form-control" placeholder="Apellido Paterno" minlength="4" maxlength="25" required>
+            <div class="valid-tooltip">
+            Escribe algo
+            </div>
+        </div>
+        <div class="col-md-4 mb-3">
+            <label for="validationTooltip02">Apellido Materno</label>
+            <input type="text " class="form-control" id="txtApellido_m" name = "txtApellido_m" class ="form-control" placeholder="Apellido Materno" minlength="4" maxlength="25" required>
+            <div class="valid-tooltip">
+            Escribe algo
+            </div>
+        </div>
+        <div class="col-md-4 mb-3">
+            <label for="validationTooltip03">Nombre(s)</label>
+            <input type="text" class="form-control" id="txtNombres" name = "txtNombres" class ="form-control" placeholder="Nombre(s)" minlength="3" maxlength="40" required>
+                <div class="invalid-tooltip">
+                Escribe un nombre más largo
+                </div>
+        </div>
+        <div class="col-md-6 mb-8">
+            <label for="validationTooltip04">Correo electronico</label>
+            <input type="text" class="form-control" id="txtcorreo" name = "txtcorreo" class ="form-control" placeholder="Correo electronico" minlength="6" maxlength="50" required>
+                <div class="invalid-tooltip">
+                Escribe un correo valido
+                </div>
+        </div>
+    <div class="form-group col-md-6 mb-8">
+        <button type="submit" class = "btn btn-success text-white">Guardar</button>
+    </div>
+</form>
+</div>
+  {% endblock %}

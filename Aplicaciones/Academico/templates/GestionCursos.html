@@ -1,0 +1,45 @@
+{% extends "./base.html" %}
+{% block title %}Gestion de alumnos{% endblock %}
+{% block body%}
+<body style="background-color: #343a40">
+<div class = "row">
+  <div class= "col-sm-12 col-md-12 col-lg-12 col-xl-12">
+  
+
+  <div class= "col-sm-12 col-md-12 col-lg-12 col-xl-12">
+    <h1 class = "text-light">Listado de alumnos
+    <a href="agregar/" class = "btn btn-secondary text-white">Agregar alumno</a></h1>
+  <div class = "table-responsive py-2">
+    <table class = "table table-dark table-striped">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>No. de control</th>
+          <th>Nombre(s) </th>
+          <th>Apellido paterno</th>
+          <th>Apellido materno</th>
+          <th>correo electronico</th>
+          <th colspan="2">Opciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for c in alumnos %}
+        <tr>
+          <td>{{forloop.counter}}</td>
+          <td>{{c.No_control}}</td>
+          <td>{{c.Nombres}}</td>
+          <td>{{c.Apellido_p}}</td>
+          <td>{{c.Apellido_m}}</td>
+          <td>{{c.correo}}</td>
+          <td><a href="edicionA/{{c.No_control}}" class="btn btn-info ">Editar</a></td>
+          <td><a href="eliminacionA/{{c.No_control}}" class="btn btn-danger btneliminacion">Eliminar</a></td>
+        </tr>
+          
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  <div>
+</div>
+</body>
+{% endblock %}
